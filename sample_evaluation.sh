@@ -1,5 +1,5 @@
-datapath=/path/to/data/from/mvtec
-loadpath=/path/to/pretrained/patchcore/model
+datapath="mvtec_anomaly_detection"
+loadpath="results"
 
 modelfolder=IM320_Ensemble_L2-3_P001_D1024-384_PS-3_AN-1
 # modelfolder=IM224_Ensemble_L2-3_P001_D1024-384_PS-3_AN-1
