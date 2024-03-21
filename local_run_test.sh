@@ -1,9 +1,11 @@
 #!/bin/bash
-
+datapath="mvtec_anomaly_detection"
+datasets=('bottle' 'peanut')
+dataset_flags=($(for dataset in "${datasets[@]}"; do echo '-d '"${dataset}"; done))
 # To be safe, switch into the folder that contains this script.
 cd "$( cd "$( dirname "$0" )" && pwd )"
 
-env PYTHONPATH=./src python bin/run_patchcore.py --gpu 0 --seed 0 --save_patchcore_model \
+env PYTHONPATH=src python bin/run_patchcore.py --gpu 0 --seed 0 --save_patchcore_model \
 --log_group IM224_WR50_L2-3_P01_D1024-1024_PS-3_AN-1_S0  --log_project MVTecAD_Results results \
 patch_core -b wideresnet50 -le layer2 -le layer3 --faiss_on_gpu \
 --pretrain_embed_dimension 1024  --target_embed_dimension 1024 --anomaly_scorer_num_nn 1 --patchsize 3 \

@@ -8,11 +8,21 @@ import click
 import numpy as np
 import torch
 
-import patchcore.common
-import patchcore.metrics
-import patchcore.patchcore
-import patchcore.sampler
-import patchcore.utils
+sys.path.append('src')
+try:
+    import patchcore.backbones
+    import patchcore.common
+    import patchcore.metrics
+    import patchcore.patchcore
+    import patchcore.sampler
+    import patchcore.utils
+except:
+    from src.patchcore import backbones
+    from src.patchcore import common
+    from src.patchcore import metrics
+    from src.patchcore import patchcore
+    from src.patchcore import sampler
+    from src.patchcore import utils
 
 LOGGER = logging.getLogger(__name__)
 

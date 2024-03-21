@@ -1,11 +1,11 @@
 datapath="mvtec_anomaly_detection"
 loadpath="results"
 
-modelfolder=IM320_Ensemble_L2-3_P001_D1024-384_PS-3_AN-1
+modelfolder=MVTecAD_Results/IM320_WR50_L2-3_P001_D1024-1024_PS-3_AN-1_S22
 # modelfolder=IM224_Ensemble_L2-3_P001_D1024-384_PS-3_AN-1
 savefolder=evaluated_results'/'$modelfolder
 
-datasets=('bottle'  'cable'  'capsule'  'carpet'  'grid'  'hazelnut' 'leather'  'metal_nut'  'pill' 'screw' 'tile' 'toothbrush' 'transistor' 'wood' 'zipper')
+datasets=('bottle' 'peanut')
 model_flags=($(for dataset in "${datasets[@]}"; do echo '-p '$loadpath'/'$modelfolder'/models/mvtec_'$dataset; done))
 dataset_flags=($(for dataset in "${datasets[@]}"; do echo '-d '$dataset; done))
 
